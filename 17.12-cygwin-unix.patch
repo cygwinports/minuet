@@ -1,0 +1,11 @@
+--- origsrc/minuet-17.12.3/src/plugins/fluidsynthsoundcontroller/fluidsynthsoundcontroller.cpp	2018-03-07 13:48:47.000000000 -0600
++++ src/minuet-17.12.3/src/plugins/fluidsynthsoundcontroller/fluidsynthsoundcontroller.cpp	2018-03-16 00:51:16.731750500 -0500
+@@ -214,7 +214,7 @@ void FluidSynthSoundController::sequence
+ void FluidSynthSoundController::resetEngine()
+ {
+     deleteEngine();
+-#ifdef Q_OS_LINUX
++#ifdef Q_OS_UNIX
+     fluid_settings_setstr(m_settings, "audio.driver", "pulseaudio");
+ #endif
+ #ifdef Q_OS_WIN

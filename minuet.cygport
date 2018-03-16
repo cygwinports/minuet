@@ -1,0 +1,37 @@
+inherit kf5
+
+NAME="minuet"
+VERSION=17.12.3
+RELEASE=1
+CATEGORY="Audio"
+SUMMARY="KDE music education application"
+DESCRIPTION="Minuet is KDE software for music education. Minuet aims at
+supporting students and teachers in many aspects of music education, such
+as ear training, first-sight reading, solfa, scales, rhythm, harmony, and
+improvisation. Minuet makes extensive use of MIDI capabilities to provide
+a full-fledged set of features regarding volume, tempo, and pitch changes,
+which makes Minuet a valuable tool for both novice and experienced musicians."
+
+PATCH_URI="17.12-cygwin-unix.patch"
+
+PKG_NAMES="${NAME}" # ${NAME}-devel"
+minuet_REQUIRES="qt5-quickcontrols2"
+minuet_CONTENTS="
+	etc/postinstall/minuet.sh
+	usr/bin/cygminuetinterfaces.dll
+	usr/bin/minuet.exe
+	usr/lib/qt5/plugins/minuet/
+	usr/share/applications/org.kde.minuet.desktop
+	usr/share/doc/HTML/*/minuet/
+	usr/share/doc/minuet/
+	usr/share/icons/hicolor/*/*/minuet*
+	usr/share/locale/*/LC_MESSAGES/minuet.mo
+	usr/share/metainfo/org.kde.minuet.appdata.xml
+	usr/share/minuet/
+"
+minuet_devel_REQUIRES="libQt5Core-devel"
+minuet_devel_CONTENTS="
+	usr/include/minuet/
+	usr/lib/libminuetinterfaces.dll.a
+"
+PKG_IGNORE=${minuet_devel_CONTENTS}
